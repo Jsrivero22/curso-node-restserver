@@ -73,11 +73,9 @@ const userDelete = async ( req, res ) => {
     // Fisicamente lo borramos
     // const user = await User.findByIdAndDelete( id );
 
-    const user = await User.findByIdAndUpdate( id, { state: false });
+    const user = await User.findByIdAndUpdate( id, { state: false }, { new: true });
 
-    res.json({
-        user
-    });
+    res.json( user );
 }
 
 module.exports = {
