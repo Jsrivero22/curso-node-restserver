@@ -35,7 +35,6 @@
         function handleCredentialResponse(response) {
 
             // Google Token : ID_TOKEN
-            // console.log(response.credential);
             const data = {
                 id_token: response.credential
             }
@@ -49,7 +48,6 @@
             })
             .then( resp => resp.json())
             .then( resp => {
-                console.log(resp);
                 localStorage.setItem('email', resp.user.email);
             })
             .catch( console.warn )
@@ -58,7 +56,6 @@
         const google_signout = document.getElementById('google_signout');
         google_signout.addEventListener('click', () => {
 
-            console.log(google.accounts.id);
             google.accounts.id.disableAutoSelect();
 
             google.accounts.id.revoke(localStorage.getItem('email'), () => {

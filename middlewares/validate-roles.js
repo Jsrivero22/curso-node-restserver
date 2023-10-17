@@ -11,8 +11,6 @@ const isAdminRole = ( req = request, res = response, next ) => {
 
     const { role, name } = req.user;
 
-    console.log(role)
-
     if ( role !== 'ADMIN' ) {
         return res.status(401).json({
             message: `${ name } no es administrado - No puede hacer la eliminacion`
